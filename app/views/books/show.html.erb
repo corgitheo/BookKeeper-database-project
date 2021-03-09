@@ -1,0 +1,29 @@
+<div class="section">
+  <div class="columns">
+    <div class="column is-4">
+      <%= image_tag @book.thumbnail, alt: "#{@book.title} by #{@book.author}" %>
+    </div>
+    <div class="column">
+      <h1 class="title is-2"><%= @book.title %><h1>
+      <h1 class ="title is-4"><%= @book.author %></h1>
+      <h1 class ="title is-6">ISBN: <%= @book.isbn %></h1>
+        <div class="content">
+          <p><strong>Description:</strong></p>
+          <%= @book.description %>
+          
+          <% if @book.lent != "" %>
+          <br>
+          <br>
+          <p><strong>Lent To:</strong></p>
+          <%= @book.lent %>
+          <% end %>
+          <br>
+          <br>
+          <%= render 'book-controls', book: @book %>
+          <br>
+          <br>
+          <%= link_to "Back", root_path, {:class=>"btn btn-default inline-block"} %>
+        </div>
+      </div>
+    </div>
+</div>

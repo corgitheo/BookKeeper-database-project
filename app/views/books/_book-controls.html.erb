@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+
+  <% if user_added_to_library?(current_user, book) %>
+    <!--<%= link_to 'Remove from library', add_book_path(book, type: "remove"), method: :put, data: { confirm: "Are you sure you want to delete? "}, class: "button is-danger " %>-->
+    <%= link_to 'Remove from library', book, method: :delete, data: { confirm: "Are you sure you want to delete? "}, class:"button is-danger" %>
+    <%= link_to 'Edit', edit_book_path(book), class: "button is-danger" %>
+  <% end %>
+
+<% end %>
